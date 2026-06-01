@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Articulacy Support</title>
+  <meta name="description" content="Support, privacy, and troubleshooting for Articulacy, the AI speech coach and presentation simulator." />
+  <meta property="og:title" content="Articulacy Support" />
+  <meta property="og:description" content="Support, privacy, and troubleshooting for Articulacy." />
+  <meta name="theme-color" content="#4b8cf7" />
+
+  <style>
+    :root {
+      --navy: #232f73;
+      --blue: #4b8cf7;
+      --cyan: #63cce6;
+      --bg: #f5f8ff;
+      --text: #101828;
+      --muted: #667085;
+      --card: rgba(255, 255, 255, 0.84);
+      --stroke: rgba(255, 255, 255, 0.9);
+      --shadow: 0 18px 50px rgba(16, 24, 40, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #080c16;
+        --text: #edf4ff;
+        --muted: #a8b3c7;
+        --card: rgba(28, 35, 50, 0.92);
+        --stroke: rgba(255, 255, 255, 0.08);
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 0%, rgba(99, 204, 230, 0.32), transparent 34rem),
+        radial-gradient(circle at 5% 18%, rgba(75, 140, 247, 0.24), transparent 28rem),
+        linear-gradient(180deg, var(--bg), #ffffff);
+      font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background:
+          radial-gradient(circle at 85% 0%, rgba(99, 204, 230, 0.16), transparent 34rem),
+          radial-gradient(circle at 5% 18%, rgba(75, 140, 247, 0.18), transparent 28rem),
+          linear-gradient(180deg, #080c16, #111827);
+      }
+    }
+
+    a {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .page {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 54px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--navy), var(--blue), var(--cyan));
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .bars {
+      display: flex;
+      align-items: end;
+      gap: 4px;
+      height: 22px;
+    }
+
+    .bars span {
+      width: 6px;
+      border-radius: 999px;
+      background: white;
+      display: block;
+    }
+
+    .bars span:nth-child(1) { height: 12px; opacity: 0.82; }
+    .bars span:nth-child(2) { height: 22px; }
+    .bars span:nth-child(3) { height: 16px; opacity: 0.9; }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.94rem;
+    }
+
+    .hero {
+      padding: clamp(24px, 5vw, 46px);
+      border-radius: 34px;
+      color: white;
+      background: linear-gradient(135deg, rgba(35, 47, 115, 0.98), rgba(75, 140, 247, 0.96), rgba(99, 204, 230, 0.94));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -90px;
+      top: -100px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+      filter: blur(4px);
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      opacity: 0.78;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(2.4rem, 7vw, 5.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.075em;
+    }
+
+    .hero p {
+      max-width: 690px;
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(1.05rem, 2.5vw, 1.28rem);
+      line-height: 1.55;
+      font-weight: 650;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 18px;
+      background: white;
+      color: var(--navy);
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.16);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 720px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 1.55rem;
+      letter-spacing: -0.045em;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 26px;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 12px 34px rgba(16, 24, 40, 0.06);
+      backdrop-filter: blur(18px);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      display: flex;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      margin-top: 9px;
+      flex: 0 0 auto;
+      border-radius: 99px;
+      background: var(--blue);
+    }
+
+    .privacy {
+      display: grid;
+      gap: 14px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(75, 140, 247, 0.12);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    footer {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(102, 112, 133, 0.18);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <div class="bars"><span></span><span></span><span></span></div>
+        </div>
+        <span>Articulacy</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#support">Support</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#privacy">Privacy</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">AI Speech Coach</div>
+      <h1>Practice before it matters.</h1>
+      <p>
+        Articulacy helps students, professionals, and everyday speakers improve presentations,
+        interviews, debates, and conversations with AI coaching, speaking metrics, and daily habits.
+      </p>
+
+      <div class="actions">
+        <a class="button" href="mailto:anandg.articulacyapp@gmail.com">Contact Support</a>
+        <a class="button secondary" href="#privacy">View Privacy Policy</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">What Articulacy Helps With</h2>
+      <div class="grid">
+        <div class="card"><h3>AI Speech Coaching</h3><p>Ask for feedback, practice prompts, scripts, interview help, and clear next steps for better speaking.</p></div>
+        <div class="card"><h3>Presentation Practice</h3><p>Use the simulator to review pacing, filler words, clarity, word count, and speaking habits.</p></div>
+        <div class="card"><h3>Image and File Feedback</h3><p>Upload notes, images, slides, or files so the coach can help you prepare your message.</p></div>
+        <div class="card"><h3>Daily Progress</h3><p>Create speaking habits, track streaks, and keep communication practice part of your routine.</p></div>
+      </div>
+    </section>
+
+    <section id="support" class="section">
+      <h2 class="section-title">Support</h2>
+      <div class="card">
+        <p>
+          Need help with Articulacy, want to report an issue, or have feedback?
+          Email <a href="mailto:anandg.articulacyapp@gmail.com">anandg.articulacyapp@gmail.com</a>.
+        </p>
+        <div class="pill-row" aria-label="Support topics">
+          <span class="pill">App support</span>
+          <span class="pill">Bug reports</span>
+          <span class="pill">Privacy questions</span>
+          <span class="pill">Feature feedback</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="section">
+      <h2 class="section-title">Troubleshooting</h2>
+      <div class="card">
+        <ul class="list">
+          <li><span class="dot"></span><span><strong>AI coach not responding:</strong> check your internet connection, wait a moment, then try sending the message again.</span></li>
+          <li><span class="dot"></span><span><strong>Microphone not working:</strong> open iPhone Settings, find Articulacy, and make sure Microphone and Speech Recognition are enabled.</span></li>
+          <li><span class="dot"></span><span><strong>Presentation simulator not starting:</strong> make sure Camera and Microphone access are enabled for Articulacy.</span></li>
+          <li><span class="dot"></span><span><strong>Image upload issues:</strong> allow Photo Library access and try a clear image under normal file size limits.</span></li>
+          <li><span class="dot"></span><span><strong>File analysis issues:</strong> text-based PDFs and plain text files work best. Scanned PDFs may not contain readable text.</span></li>
+          <li><span class="dot"></span><span><strong>Habit data missing:</strong> habits are stored locally on your device, so deleting the app may remove local progress.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="privacy" class="section">
+      <h2 class="section-title">Privacy Policy</h2>
+      <div class="card privacy">
+        <p><strong>Effective Date:</strong> June 1, 2026</p>
+        <p>Articulacy respects your privacy. This policy explains how the app collects, uses, processes, and shares information when you use speech coaching, presentation simulation, habit tracking, onboarding, image upload, file upload, and related features.</p>
+        <p><strong>Information we may process:</strong> typed messages, speech recordings, transcripts, camera-based presentation feedback, uploaded images, uploaded files, extracted file text, habits, streaks, theme settings, onboarding status, and limited technical request data needed to operate the app.</p>
+        <p><strong>How information is used:</strong> to provide AI speech coaching, generate feedback, calculate speaking metrics, analyze presentation practice, support uploads, save local app preferences, improve reliability, and respond to support requests.</p>
+        <p><strong>AI processing:</strong> content you submit for AI features, including prompts, transcripts, uploaded images, and extracted file text, may be sent to our backend and OpenAI to generate responses and analysis.</p>
+        <p><strong>Local storage:</strong> habits, streaks, app theme, and onboarding status may be stored locally on your device. Deleting the app may remove this local data.</p>
+        <p><strong>Permissions:</strong> you can control Microphone, Speech Recognition, Camera, Photos, and Files permissions in your device settings. Some features may not work if a required permission is disabled.</p>
+        <p><strong>No sale of personal information:</strong> Articulacy does not sell your personal information and does not use submitted content for third-party advertising.</p>
+        <p><strong>Children:</strong> Articulacy is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+        <p><strong>Security:</strong> we take reasonable steps to protect information processed by the app, but no method of electronic transmission or storage is completely secure.</p>
+        <p><strong>Contact:</strong> if you have questions about privacy or support, email <a href="mailto:anandg.articulacyapp@gmail.com">anandg.articulacyapp@gmail.com</a>.</p>
+      </div>
+    </section>
+
+    <footer>
+      Articulacy is built by Anand Gadicherla. © 2026 Anand Gadicherla.
+      <br />
+      Page updated June 1, 2026.
+    </footer>
+  </main>
+</body>
+</html>
