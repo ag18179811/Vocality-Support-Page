@@ -8,7 +8,6 @@
   <meta property="og:title" content="Vocality Support" />
   <meta property="og:description" content="Support, privacy, and troubleshooting for Vocality." />
   <meta name="theme-color" content="#4b8cf7" />
-
   <style>
     :root {
       --navy: #232f73;
@@ -17,7 +16,7 @@
       --bg: #f5f8ff;
       --text: #101828;
       --muted: #667085;
-      --card: rgba(255, 255, 255, 0.86);
+      --card: rgba(255, 255, 255, 0.88);
       --stroke: rgba(255, 255, 255, 0.9);
       --shadow: 0 18px 50px rgba(16, 24, 40, 0.12);
     }
@@ -35,7 +34,6 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       min-height: 100vh;
@@ -56,266 +54,52 @@
       }
     }
 
-    a {
-      color: var(--blue);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    .page {
-      width: min(960px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 34px 0 54px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 22px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      font-size: 1.15rem;
-      letter-spacing: -0.03em;
-    }
-
-    .mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--navy), var(--blue), var(--cyan));
-      display: grid;
-      place-items: center;
-      box-shadow: var(--shadow);
-    }
-
-    .bars {
-      display: flex;
-      align-items: end;
-      gap: 4px;
-      height: 22px;
-    }
-
-    .bars span {
-      width: 6px;
-      border-radius: 999px;
-      background: white;
-      display: block;
-    }
-
+    a { color: var(--blue); font-weight: 800; text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .page { width: min(960px, calc(100% - 32px)); margin: 0 auto; padding: 34px 0 54px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; font-size: 1.15rem; letter-spacing: -0.03em; }
+    .mark { width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, var(--navy), var(--blue), var(--cyan)); display: grid; place-items: center; box-shadow: var(--shadow); }
+    .bars { display: flex; align-items: end; gap: 4px; height: 22px; }
+    .bars span { width: 6px; border-radius: 999px; background: white; display: block; }
     .bars span:nth-child(1) { height: 12px; opacity: 0.82; }
     .bars span:nth-child(2) { height: 22px; }
     .bars span:nth-child(3) { height: 16px; opacity: 0.9; }
-
-    .nav-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 0.94rem;
-    }
-
-    .hero {
-      padding: clamp(24px, 5vw, 46px);
-      border-radius: 34px;
-      color: white;
-      background: linear-gradient(135deg, rgba(35, 47, 115, 0.98), rgba(75, 140, 247, 0.96), rgba(99, 204, 230, 0.94));
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      right: -90px;
-      top: -100px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.13);
-      filter: blur(4px);
-    }
-
+    .nav-links { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.94rem; }
+    .hero { padding: clamp(24px, 5vw, 46px); border-radius: 34px; color: white; background: linear-gradient(135deg, rgba(35, 47, 115, 0.98), rgba(75, 140, 247, 0.96), rgba(99, 204, 230, 0.94)); box-shadow: var(--shadow); overflow: hidden; position: relative; }
+    .hero::after { content: ""; position: absolute; width: 260px; height: 260px; right: -90px; top: -100px; border-radius: 999px; background: rgba(255, 255, 255, 0.13); filter: blur(4px); }
     .hero > * { position: relative; z-index: 1; }
-
-    .eyebrow {
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      opacity: 0.78;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      margin: 0;
-      max-width: 760px;
-      font-size: clamp(2.4rem, 7vw, 5.2rem);
-      line-height: 0.96;
-      letter-spacing: -0.075em;
-    }
-
-    .hero p {
-      max-width: 690px;
-      margin: 18px 0 0;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: clamp(1.05rem, 2.5vw, 1.28rem);
-      line-height: 1.55;
-      font-weight: 650;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 18px;
-      background: white;
-      color: var(--navy);
-      font-weight: 900;
-      box-shadow: 0 12px 30px rgba(16, 24, 40, 0.16);
-    }
-
-    .button.secondary {
-      background: rgba(255, 255, 255, 0.14);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: none;
-    }
-
+    .eyebrow { font-size: 0.78rem; font-weight: 900; letter-spacing: 0.14em; opacity: 0.78; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { margin: 0; max-width: 760px; font-size: clamp(2.4rem, 7vw, 5.2rem); line-height: 0.96; letter-spacing: -0.075em; }
+    .hero p { max-width: 690px; margin: 18px 0 0; color: rgba(255, 255, 255, 0.86); font-size: clamp(1.05rem, 2.5vw, 1.28rem); line-height: 1.55; font-weight: 650; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 18px; background: white; color: var(--navy); font-weight: 900; box-shadow: 0 12px 30px rgba(16, 24, 40, 0.16); }
+    .button.secondary { background: rgba(255, 255, 255, 0.14); color: white; border: 1px solid rgba(255, 255, 255, 0.22); box-shadow: none; }
     .section { margin-top: 28px; }
-
-    .section-title {
-      margin: 0 0 12px;
-      font-size: 1.55rem;
-      letter-spacing: -0.045em;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
+    .section-title { margin: 0 0 12px; font-size: 1.55rem; letter-spacing: -0.045em; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+    .card { padding: 22px; border-radius: 26px; background: var(--card); border: 1px solid var(--stroke); box-shadow: 0 12px 34px rgba(16, 24, 40, 0.06); backdrop-filter: blur(18px); }
+    .card h3 { margin: 0 0 8px; font-size: 1.1rem; letter-spacing: -0.03em; }
+    .card p { margin: 0 0 12px; color: var(--muted); line-height: 1.62; }
+    .card p:last-child { margin-bottom: 0; }
+    .list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .list li { display: flex; gap: 10px; color: var(--muted); line-height: 1.55; }
+    .dot { width: 9px; height: 9px; margin-top: 9px; flex: 0 0 auto; border-radius: 99px; background: var(--blue); }
+    .privacy { display: grid; gap: 16px; }
+    .privacy-section { padding-top: 2px; border-top: 1px solid rgba(102, 112, 133, 0.16); }
+    .privacy-section:first-child { border-top: 0; }
+    .privacy-section h3 { margin-top: 14px; }
+    .privacy-section ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.62; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .pill { padding: 9px 12px; border-radius: 999px; background: rgba(75, 140, 247, 0.12); color: var(--text); font-size: 0.9rem; font-weight: 800; }
+    footer { margin-top: 34px; padding-top: 18px; border-top: 1px solid rgba(102, 112, 133, 0.18); color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
 
     @media (max-width: 720px) {
       .grid { grid-template-columns: 1fr; }
       .nav { align-items: flex-start; flex-direction: column; }
     }
-
-    .card {
-      padding: 22px;
-      border-radius: 26px;
-      background: var(--card);
-      border: 1px solid var(--stroke);
-      box-shadow: 0 12px 34px rgba(16, 24, 40, 0.06);
-      backdrop-filter: blur(18px);
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-      letter-spacing: -0.03em;
-    }
-
-    .card p {
-      margin: 0 0 12px;
-      color: var(--muted);
-      line-height: 1.62;
-    }
-
-    .card p:last-child { margin-bottom: 0; }
-
-    .list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .list li {
-      display: flex;
-      gap: 10px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      margin-top: 9px;
-      flex: 0 0 auto;
-      border-radius: 99px;
-      background: var(--blue);
-    }
-
-    .privacy { display: grid; gap: 16px; }
-
-    .privacy-section {
-      padding-top: 2px;
-      border-top: 1px solid rgba(102, 112, 133, 0.16);
-    }
-
-    .privacy-section:first-child { border-top: 0; }
-
-    .privacy-section h3 {
-      margin-top: 14px;
-    }
-
-    .privacy-section ul {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--muted);
-      line-height: 1.62;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .pill {
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(75, 140, 247, 0.12);
-      color: var(--text);
-      font-size: 0.9rem;
-      font-weight: 800;
-    }
-
-    footer {
-      margin-top: 34px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(102, 112, 133, 0.18);
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
   </style>
 </head>
-
 <body>
   <main class="page">
     <nav class="nav" aria-label="Main navigation">
@@ -323,7 +107,6 @@
         <div class="mark" aria-hidden="true"><div class="bars"><span></span><span></span><span></span></div></div>
         <span>Vocality</span>
       </div>
-
       <div class="nav-links">
         <a href="#support">Support</a>
         <a href="#troubleshooting">Troubleshooting</a>
@@ -334,11 +117,7 @@
     <section class="hero">
       <div class="eyebrow">AI Speech Coach</div>
       <h1>Practice before it matters.</h1>
-      <p>
-        Vocality helps students, professionals, and everyday speakers improve presentations,
-        interviews, debates, and conversations with AI coaching, speaking metrics, and daily habits.
-      </p>
-
+      <p>Vocality helps students, professionals, and everyday speakers improve presentations, interviews, debates, and conversations with AI coaching, speaking metrics, optional reminders, and daily habits.</p>
       <div class="actions">
         <a class="button" href="mailto:anandg.vocalityapp@gmail.com">Contact Support</a>
         <a class="button secondary" href="#privacy">View Privacy Policy</a>
@@ -351,17 +130,14 @@
         <div class="card"><h3>AI Speech Coaching</h3><p>Ask for feedback, practice prompts, scripts, interview help, and clear next steps for better speaking.</p></div>
         <div class="card"><h3>Presentation Practice</h3><p>Use the simulator to review pacing, filler words, clarity, word count, and speaking habits.</p></div>
         <div class="card"><h3>Image and File Feedback</h3><p>Upload notes, images, slides, or files so the coach can help you prepare your message.</p></div>
-        <div class="card"><h3>Daily Progress</h3><p>Create speaking habits, track streaks, and keep communication practice part of your routine.</p></div>
+        <div class="card"><h3>Daily Progress</h3><p>Create speaking habits, track streaks, and turn on optional reminders to keep communication practice part of your routine.</p></div>
       </div>
     </section>
 
     <section id="support" class="section">
       <h2 class="section-title">Support</h2>
       <div class="card">
-        <p>
-          Need help with Vocality, want to report an issue, or have feedback?
-          Email <a href="mailto:anandg.vocalityapp@gmail.com">anandg.vocalityapp@gmail.com</a>.
-        </p>
+        <p>Need help with Vocality, want to report an issue, or have feedback? Email <a href="mailto:anandg.vocalityapp@gmail.com">anandg.vocalityapp@gmail.com</a>.</p>
         <div class="pill-row" aria-label="Support topics">
           <span class="pill">App support</span>
           <span class="pill">Bug reports</span>
@@ -376,8 +152,9 @@
       <div class="card">
         <ul class="list">
           <li><span class="dot"></span><span><strong>AI coach not responding:</strong> check your internet connection, wait a moment, then try sending the message again.</span></li>
-          <li><span class="dot"></span><span><strong>Microphone not working:</strong> open iPhone Settings, find Vocality, and make sure Microphone and Speech Recognition are enabled.</span></li>
+          <li><span class="dot"></span><span><strong>Microphone not working:</strong> open iPhone or iPad Settings, find Vocality, and make sure Microphone and Speech Recognition are enabled.</span></li>
           <li><span class="dot"></span><span><strong>Presentation simulator not starting:</strong> make sure Camera and Microphone access are enabled for Vocality.</span></li>
+          <li><span class="dot"></span><span><strong>Reminders not appearing:</strong> make sure notifications are enabled for Vocality and that Daily Practice Reminder is turned on in the app Settings.</span></li>
           <li><span class="dot"></span><span><strong>Image upload issues:</strong> allow Photo Library access and try a clear image under normal file size limits.</span></li>
           <li><span class="dot"></span><span><strong>File analysis issues:</strong> text-based PDFs and plain text files work best. Scanned PDFs may not contain readable text.</span></li>
           <li><span class="dot"></span><span><strong>Habit data missing:</strong> habits are stored locally on your device, so deleting the app may remove local progress.</span></li>
@@ -390,8 +167,8 @@
       <div class="card privacy">
         <div class="privacy-section">
           <p><strong>Effective Date:</strong> June 1, 2026</p>
-          <p><strong>Last Updated:</strong> June 1, 2026</p>
-          <p>Vocality ("we," "our," or "us") respects your privacy. This Privacy Policy explains what information the Vocality mobile application (the "App") processes when you use AI speech coaching, presentation simulation, voice recording, image upload, file upload, habit tracking, onboarding, settings, and related features.</p>
+          <p><strong>Last Updated:</strong> June 2, 2026</p>
+          <p>Vocality ("we," "our," or "us") respects your privacy. This Privacy Policy explains what information the Vocality mobile application (the "App") processes when you use AI speech coaching, presentation simulation, voice recording, image upload, file upload, habit tracking, optional reminders, onboarding, settings, and related features.</p>
           <p>Vocality does not require users to create an account. The App is designed to help users practice speaking and presentations, not to sell data, show ads, track users across apps or websites, or build advertising profiles.</p>
         </div>
 
@@ -409,22 +186,22 @@
             <li><strong>Speech, audio, and transcripts:</strong> if you use voice recording, speech coaching, or presentation analysis features, the App may access your microphone and Apple speech recognition services to record or transcribe speech, calculate speaking metrics, and provide feedback.</li>
             <li><strong>Photos, images, and files:</strong> if you choose to upload an image, PDF, text file, or other supported file, the App may process that content. Images and extracted file text may be sent to Vocality's backend and AI service providers so the App can analyze the material and respond to your request.</li>
             <li><strong>Camera-based presentation feedback:</strong> if you use the presentation simulator, the App may access your camera while the feature is active to provide real-time practice feedback such as posture or eye-contact-related guidance. Vocality does not intentionally save or upload full camera video from the simulator.</li>
-            <li><strong>Local habit and preference data:</strong> habits, streaks, theme settings, onboarding status, and similar preferences may be stored locally on your device.</li>
+            <li><strong>Local habit and preference data:</strong> habits, streaks, theme settings, onboarding status, reminder settings, and similar preferences may be stored locally on your device.</li>
             <li><strong>Limited technical request data:</strong> hosting and service providers may process limited technical data such as request metadata, IP address, timestamps, and error information as needed to deliver, secure, maintain, and troubleshoot the service.</li>
           </ul>
         </div>
 
         <div class="privacy-section">
           <h3>How We Use Information</h3>
-          <p>We use information to provide core App functionality, including AI speech coaching, presentation feedback, transcripts, speaking metrics, image and file analysis, and practical improvement suggestions.</p>
-          <p>We use speech and transcript information to calculate metrics such as word count, words per minute, filler-word count, filler words per minute, and presentation feedback. We use local habit and preference data to save your habits, streaks, app theme, onboarding status, and related app settings on your device.</p>
+          <p>We use information to provide core App functionality, including AI speech coaching, presentation feedback, transcripts, speaking metrics, image and file analysis, optional local reminders, and practical improvement suggestions.</p>
+          <p>We use speech and transcript information to calculate metrics such as word count, words per minute, filler-word count, filler words per minute, and presentation feedback. We use local habit and preference data to save your habits, streaks, app theme, onboarding status, reminder settings, and related app settings on your device.</p>
         </div>
 
         <div class="privacy-section">
           <h3>AI Processing and Service Providers</h3>
           <p>Vocality uses a backend service hosted through Render to process AI requests without placing the OpenAI API key directly inside the App.</p>
           <p>Content you submit for AI features, including typed messages, transcripts, uploaded images, extracted file text, and related prompts, may be transmitted to OpenAI to generate responses and analysis.</p>
-          <p>The App may also use Apple services and frameworks, including microphone access, camera access, Photos, Files, and Speech Recognition. Apple may process certain information according to Apple's own privacy practices.</p>
+          <p>The App may also use Apple services and frameworks, including microphone access, camera access, Photos, Files, Speech Recognition, and local notifications. Apple may process certain information according to Apple's own privacy practices.</p>
           <p>These providers process information to provide App functionality. Vocality does not authorize them to use submitted content for third-party advertising or cross-app tracking.</p>
         </div>
 
@@ -441,15 +218,16 @@
 
         <div class="privacy-section">
           <h3>Data Storage and Retention</h3>
-          <p>Some information, such as habits, streaks, app theme, and onboarding status, is stored locally on your device. This data remains on your device until you delete it, reset it, or delete the App.</p>
+          <p>Some information, such as habits, streaks, app theme, onboarding status, and reminder preferences, is stored locally on your device. This data remains on your device until you delete it, reset it, or delete the App.</p>
           <p>Audio recordings used for voice features may be temporary and used to create transcripts or feedback. Transcripts, prompts, uploaded images, and extracted file text may be transmitted off-device when needed to provide AI features.</p>
           <p>Vocality does not intentionally store submitted AI prompts, transcripts, images, or file contents longer than reasonably necessary to provide the requested feature, operate the service, troubleshoot errors, maintain security, or comply with legal obligations. Third-party providers, including OpenAI and Render, may process and retain data according to their own policies and service terms.</p>
         </div>
 
         <div class="privacy-section">
           <h3>Your Choices and Controls</h3>
-          <p>You can control access to microphone, speech recognition, camera, photos, and files through your device settings. If you deny a permission, the related feature may not work properly.</p>
-          <p>You can choose not to use AI features, voice recording, presentation simulation, image upload, or file upload at any time. You can delete locally stored habits, streaks, app preferences, and onboarding data by deleting the App from your device.</p>
+          <p>You can control access to microphone, speech recognition, camera, photos, files, and notifications through your device settings. If you deny a permission, the related feature may not work properly.</p>
+          <p>You can choose not to use AI features, voice recording, presentation simulation, image upload, file upload, or optional reminders at any time. You can turn optional practice reminders on or off in the app Settings.</p>
+          <p>You can delete locally stored habits, streaks, app preferences, reminder preferences, and onboarding data by deleting the App from your device.</p>
           <p>Because Vocality does not currently provide user accounts, we may not be able to identify or retrieve past AI requests unless you provide enough information for us to locate a specific support issue. You may contact us with privacy questions or data-related concerns.</p>
         </div>
 
@@ -482,9 +260,9 @@
     </section>
 
     <footer>
-      Vocality is built by Anand Gadicherla. © 2026 Anand Gadicherla.
+      Vocality is built by Anand Gadicherla. &copy; 2026 Anand Gadicherla.
       <br />
-      Page updated June 1, 2026.
+      Page updated June 2, 2026.
     </footer>
   </main>
 </body>
