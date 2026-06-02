@@ -17,7 +17,7 @@
       --bg: #f5f8ff;
       --text: #101828;
       --muted: #667085;
-      --card: rgba(255, 255, 255, 0.84);
+      --card: rgba(255, 255, 255, 0.86);
       --stroke: rgba(255, 255, 255, 0.9);
       --shadow: 0 18px 50px rgba(16, 24, 40, 0.12);
     }
@@ -68,7 +68,7 @@
     }
 
     .page {
-      width: min(920px, calc(100% - 32px));
+      width: min(960px, calc(100% - 32px));
       margin: 0 auto;
       padding: 34px 0 54px;
     }
@@ -238,10 +238,12 @@
     }
 
     .card p {
-      margin: 0;
+      margin: 0 0 12px;
       color: var(--muted);
       line-height: 1.62;
     }
+
+    .card p:last-child { margin-bottom: 0; }
 
     .list {
       display: grid;
@@ -267,7 +269,25 @@
       background: var(--blue);
     }
 
-    .privacy { display: grid; gap: 14px; }
+    .privacy { display: grid; gap: 16px; }
+
+    .privacy-section {
+      padding-top: 2px;
+      border-top: 1px solid rgba(102, 112, 133, 0.16);
+    }
+
+    .privacy-section:first-child { border-top: 0; }
+
+    .privacy-section h3 {
+      margin-top: 14px;
+    }
+
+    .privacy-section ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.62;
+    }
 
     .pill-row {
       display: flex;
@@ -368,17 +388,96 @@
     <section id="privacy" class="section">
       <h2 class="section-title">Privacy Policy</h2>
       <div class="card privacy">
-        <p><strong>Effective Date:</strong> June 1, 2026</p>
-        <p>Vocality respects your privacy. This policy explains how the app collects, uses, processes, and shares information when you use speech coaching, presentation simulation, habit tracking, onboarding, image upload, file upload, and related features.</p>
-        <p><strong>Information we may process:</strong> typed messages, speech recordings, transcripts, camera-based presentation feedback, uploaded images, uploaded files, extracted file text, habits, streaks, theme settings, onboarding status, and limited technical request data needed to operate the app.</p>
-        <p><strong>How information is used:</strong> to provide AI speech coaching, generate feedback, calculate speaking metrics, analyze presentation practice, support uploads, save local app preferences, improve reliability, and respond to support requests.</p>
-        <p><strong>AI processing:</strong> content you submit for AI features, including prompts, transcripts, uploaded images, and extracted file text, may be sent to our backend and OpenAI to generate responses and analysis.</p>
-        <p><strong>Local storage:</strong> habits, streaks, app theme, and onboarding status may be stored locally on your device. Deleting the app may remove this local data.</p>
-        <p><strong>Permissions:</strong> you can control Microphone, Speech Recognition, Camera, Photos, and Files permissions in your device settings. Some features may not work if a required permission is disabled.</p>
-        <p><strong>No sale of personal information:</strong> Vocality does not sell your personal information and does not use submitted content for third-party advertising.</p>
-        <p><strong>Children:</strong> Vocality is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
-        <p><strong>Security:</strong> we take reasonable steps to protect information processed by the app, but no method of electronic transmission or storage is completely secure.</p>
-        <p><strong>Contact:</strong> if you have questions about privacy or support, email <a href="mailto:anandg.vocalityapp@gmail.com">anandg.vocalityapp@gmail.com</a>.</p>
+        <div class="privacy-section">
+          <p><strong>Effective Date:</strong> June 1, 2026</p>
+          <p><strong>Last Updated:</strong> June 1, 2026</p>
+          <p>Vocality ("we," "our," or "us") respects your privacy. This Privacy Policy explains what information the Vocality mobile application (the "App") processes when you use AI speech coaching, presentation simulation, voice recording, image upload, file upload, habit tracking, onboarding, settings, and related features.</p>
+          <p>Vocality does not require users to create an account. The App is designed to help users practice speaking and presentations, not to sell data, show ads, track users across apps or websites, or build advertising profiles.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>App Store Privacy Summary</h3>
+          <p>For App Store privacy labels, Vocality may collect Photos or Videos, Audio Data, and Other User Content when users choose to use features that require those data types.</p>
+          <p>These data types are used for App Functionality only. They are not used for third-party advertising, developer advertising or marketing, analytics, product personalization, or tracking.</p>
+          <p>Vocality does not intentionally link submitted photos, audio, transcripts, prompts, or files to a user account, because the App does not require accounts. Vocality does not use these data types to track users across other apps or websites.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>Information We Process</h3>
+          <ul>
+            <li><strong>Typed messages and prompts:</strong> when you type into the AI Speech Coach, your message is sent to Vocality's backend so the App can generate an AI response.</li>
+            <li><strong>Speech, audio, and transcripts:</strong> if you use voice recording, speech coaching, or presentation analysis features, the App may access your microphone and Apple speech recognition services to record or transcribe speech, calculate speaking metrics, and provide feedback.</li>
+            <li><strong>Photos, images, and files:</strong> if you choose to upload an image, PDF, text file, or other supported file, the App may process that content. Images and extracted file text may be sent to Vocality's backend and AI service providers so the App can analyze the material and respond to your request.</li>
+            <li><strong>Camera-based presentation feedback:</strong> if you use the presentation simulator, the App may access your camera while the feature is active to provide real-time practice feedback such as posture or eye-contact-related guidance. Vocality does not intentionally save or upload full camera video from the simulator.</li>
+            <li><strong>Local habit and preference data:</strong> habits, streaks, theme settings, onboarding status, and similar preferences may be stored locally on your device.</li>
+            <li><strong>Limited technical request data:</strong> hosting and service providers may process limited technical data such as request metadata, IP address, timestamps, and error information as needed to deliver, secure, maintain, and troubleshoot the service.</li>
+          </ul>
+        </div>
+
+        <div class="privacy-section">
+          <h3>How We Use Information</h3>
+          <p>We use information to provide core App functionality, including AI speech coaching, presentation feedback, transcripts, speaking metrics, image and file analysis, and practical improvement suggestions.</p>
+          <p>We use speech and transcript information to calculate metrics such as word count, words per minute, filler-word count, filler words per minute, and presentation feedback. We use local habit and preference data to save your habits, streaks, app theme, onboarding status, and related app settings on your device.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>AI Processing and Service Providers</h3>
+          <p>Vocality uses a backend service hosted through Render to process AI requests without placing the OpenAI API key directly inside the App.</p>
+          <p>Content you submit for AI features, including typed messages, transcripts, uploaded images, extracted file text, and related prompts, may be transmitted to OpenAI to generate responses and analysis.</p>
+          <p>The App may also use Apple services and frameworks, including microphone access, camera access, Photos, Files, and Speech Recognition. Apple may process certain information according to Apple's own privacy practices.</p>
+          <p>These providers process information to provide App functionality. Vocality does not authorize them to use submitted content for third-party advertising or cross-app tracking.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>What We Do Not Do</h3>
+          <ul>
+            <li>Vocality does not sell your personal information.</li>
+            <li>Vocality does not show third-party ads.</li>
+            <li>Vocality does not use submitted speech, transcripts, photos, files, or prompts for third-party advertising, developer advertising or marketing, or cross-app tracking.</li>
+            <li>Vocality does not require an account, collect phone numbers, collect contacts, collect payment card information, collect precise location, or provide unrestricted web browsing.</li>
+            <li>Vocality is not a medical, legal, financial, or emergency service.</li>
+          </ul>
+        </div>
+
+        <div class="privacy-section">
+          <h3>Data Storage and Retention</h3>
+          <p>Some information, such as habits, streaks, app theme, and onboarding status, is stored locally on your device. This data remains on your device until you delete it, reset it, or delete the App.</p>
+          <p>Audio recordings used for voice features may be temporary and used to create transcripts or feedback. Transcripts, prompts, uploaded images, and extracted file text may be transmitted off-device when needed to provide AI features.</p>
+          <p>Vocality does not intentionally store submitted AI prompts, transcripts, images, or file contents longer than reasonably necessary to provide the requested feature, operate the service, troubleshoot errors, maintain security, or comply with legal obligations. Third-party providers, including OpenAI and Render, may process and retain data according to their own policies and service terms.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>Your Choices and Controls</h3>
+          <p>You can control access to microphone, speech recognition, camera, photos, and files through your device settings. If you deny a permission, the related feature may not work properly.</p>
+          <p>You can choose not to use AI features, voice recording, presentation simulation, image upload, or file upload at any time. You can delete locally stored habits, streaks, app preferences, and onboarding data by deleting the App from your device.</p>
+          <p>Because Vocality does not currently provide user accounts, we may not be able to identify or retrieve past AI requests unless you provide enough information for us to locate a specific support issue. You may contact us with privacy questions or data-related concerns.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>Children's Privacy</h3>
+          <p>Vocality is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided personal information through the App, please contact us so we can take appropriate action.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>Security</h3>
+          <p>We take reasonable steps to protect information processed by the App and avoid exposing sensitive credentials in the mobile application. However, no method of transmission or electronic storage is completely secure, and we cannot guarantee absolute security.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>International Processing</h3>
+          <p>Depending on where you use the App and where service providers operate, information may be processed in countries other than your own. These countries may have privacy laws that differ from those in your location.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>Changes to This Privacy Policy</h3>
+          <p>We may update this Privacy Policy from time to time. If we make changes, we will update the "Last Updated" date. Continued use of the App after changes take effect means you accept the updated Privacy Policy.</p>
+        </div>
+
+        <div class="privacy-section">
+          <h3>Contact Us</h3>
+          <p>If you have questions about this Privacy Policy or your data, contact:</p>
+          <p>Anand Gadicherla<br /><a href="mailto:anandg.vocalityapp@gmail.com">anandg.vocalityapp@gmail.com</a></p>
+        </div>
       </div>
     </section>
 
